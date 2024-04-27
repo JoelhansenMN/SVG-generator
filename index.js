@@ -2,18 +2,18 @@ const inquirer = require("inquirer");
 const {Circle, Square, Triangle} = require("./lib/shape");
 const fs = require("fs");
 
-class SVG{
-    constructor(){
-  this.version = "1.1";
-  this.width = "300";
-  this.height = "200";
-  this.xmlns = "https://www.w3.org/2000/svg";
-    }
+// class SVG{
+//     constructor(){
+//   this.version = "1.1";
+//   this.width = "300";
+//   this.height = "200";
+//   this.xmlns = "https://www.w3.org/2000/svg";
+//     }
     
-    render(){
-      return `<svg version="${this.version}" width="${this.width}" height="${this.height}" xmlns="${this.xmlns}">`
-    }
-  }
+//     render(){
+//       return `<svg version="${this.version}" width="${this.width}" height="${this.height}" xmlns="${this.xmlns}">`
+//     }
+//   }
 
 const questions = () => inquirer.prompt([
 
@@ -45,7 +45,7 @@ const questions = () => inquirer.prompt([
 ])
 
 .then(({text, shape, shapeColor, textColor}) => {
-  const SVG = new SVG()
+  //const SVG = new SVG()
     switch(shape){
       case 'Circle':
         shape = new Circle(shapeColor)
@@ -59,7 +59,7 @@ const questions = () => inquirer.prompt([
       default:
         console.log("invalid shape selcection")
     }
-  const result = `${SVG.render()}
+  const result = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
     ${shape.render()}
     <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
     </svg>`
@@ -69,14 +69,13 @@ const questions = () => inquirer.prompt([
   )
 
   function writeToFile(fileName, data) {
-    return fs.writeFile(fileName, data, (err) => {
-      console.log(err);
-      console.log("generate logo.svg")
-    })
+    return fs.writeFileSync(fileName, data);
+  
   }
 
   function init() {
     questions().then((responses) => {
+      console.log("generate logo.svg")
       writeToFile("logo.svg", responses)
     });
   }
