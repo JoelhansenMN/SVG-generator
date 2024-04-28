@@ -12,8 +12,8 @@
   ## Links:
   [link to repo](https://github.com/JoelhansenMN/SVG-gnerator)
 
-  [link to video]()
+  [link to video](https://drive.google.com/file/d/1SuqjpwHlg_clfw81O4CSFLhGjG2Cr6eW/view)
 
-  [link to logo.svg deployed in browser]()
+  [link to logo.svg deployed in browser](http://127.0.0.1:5500/homework/homework-8/logo.svg)
 
 
