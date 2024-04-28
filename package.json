@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.4",
+    "inquirer-maxlength-input-prompt": "^1.0.2",
     "node": "^22.0.0"
   },
   "devDependencies": {
